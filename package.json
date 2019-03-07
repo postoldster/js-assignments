@@ -5,8 +5,7 @@
   "scripts": {
     "lint": "eslint ./**/*.js",
     "test": "./node_modules/.bin/mocha",
-    "test-debug": "./node_modules/.bin/mocha --debug-brk",
-    "prepush": "npm run lint && npm test"
+    "test-debug": "./node_modules/.bin/mocha --debug-brk"
   },
   "author": "IT Shark Pro",
   "license": "MIT",
@@ -18,5 +17,10 @@
   "repository": {
     "type": "git",
     "url": "git@git.github.com:it-shark-pro/js-assignments.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm test"
+    }
   }
 }

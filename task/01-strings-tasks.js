@@ -127,7 +127,8 @@ function repeatString(value, count) {
  *   'ABABAB','BA' => 'ABAB'
  */
 function removeFirstOccurrences(str, value)  {
-  return str.slice(0, str.indexOf(value)) + str.slice((str.indexOf(value) + value.length), str.length);
+  return str.slice(0, str.indexOf(value)) + str.slice((str.indexOf(value) + 
+    value.length), str.length);
 }
 
 /**
@@ -201,7 +202,7 @@ function extractEmails(str) {
 function getRectangleString(width, height) {
   return '┌' + '─'.repeat(width-2) + '┐\n' +
           ('│' + ' '.repeat(width-2) + '│\n').repeat(height - 2) +
-          '└' + '─'.repeat(width-2) + '┘\n'
+          '└' + '─'.repeat(width-2) + '┘\n';
 }
 
 
@@ -223,10 +224,10 @@ function getRectangleString(width, height) {
  */
 function encodeToRot13(str) {
   //if ( str.length )
-    return str.replace(/[a-zA-Z]/g, function(chr) {
-      var start = chr <= 'Z' ? 65 : 97;
-      return String.fromCharCode(start + (chr.charCodeAt(0) - start + 13) % 26);
-    });
+  return str.replace(/[a-zA-Z]/g, function(chr) {
+    var start = chr <= 'Z' ? 65 : 97;
+    return String.fromCharCode(start + (chr.charCodeAt(0) - start + 13) % 26);
+  });
 }
 
 /**
@@ -272,7 +273,8 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  return '♣♦♥♠'.indexOf(value.slice(-1)) * 13 + 'A234567891JQK'.indexOf(value.slice(0, 1));
+  return '♣♦♥♠'.indexOf(value.slice(-1)) * 13 + 
+    'A234567891JQK'.indexOf(value.slice(0, 1));
 }
 
 module.exports = {
