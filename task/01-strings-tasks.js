@@ -126,8 +126,8 @@ function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(s, val)  {
-  return s.slice(0, s.indexOf(val)) + s.slice((s.indexOf(val) + val.length), s.length);
+function removeFirstOccurrences(str, value)  {
+  return str.replace(value, '');
 }
 
 /**
