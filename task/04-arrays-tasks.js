@@ -102,7 +102,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-  return arr.filter((bool) => bool);
+  return arr.filter(bool => bool);
 }
 
 /**
@@ -117,7 +117,7 @@ function removeFalsyValues(arr) {
  *    [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]  => [ 'A', 'B', 'C', 'D', 'E', 'F', 'G' ]
  */
 function getUpperCaseStrings(arr) {
-  return arr.map((upCase) => upCase.toUpperCase());
+  return arr.map(upCase => upCase.toUpperCase());
 }
 
 
@@ -132,7 +132,7 @@ function getUpperCaseStrings(arr) {
  *    [ 'angular', 'react', 'ember' ] => [ 7, 5, 5 ]
  */
 function getStringsLength(arr) {
-  return arr.map((len) => len.length);
+  return arr.map(len => len.length);
 }
 
 /**
@@ -201,7 +201,7 @@ function getTail(arr, n) {
  *    +'30,31,32,33,34'
  */
 function toCsvText(arr) {
-  return arr.map((csv) => csv.join(',')).join('\n');
+  return arr.map(csv => csv.join(',')).join('\n');
 }
 
 /**
@@ -216,7 +216,7 @@ function toCsvText(arr) {
  *   [ 10, 100, -1 ]      => [ 100, 10000, 1 ]
  */
 function toArrayOfSquares(arr) {
-  return arr.map((squ) => squ * squ);
+  return arr.map(squ => squ * squ);
 }
 
 
@@ -236,7 +236,7 @@ function toArrayOfSquares(arr) {
  */
 function getMovingSum(arr) {
   let value = 0;
-  return arr.map((fib) => {value += fib; return value});
+  return arr.map(fib => {value += fib; return value;});
 }
 
 /**
