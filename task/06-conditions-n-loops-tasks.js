@@ -49,172 +49,187 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-  throw new Error('Not implemented');
+  var result = 1;
+  while (n > 0)
+      result *= n--;
+  return result;
 }
 
 
 /**
- * Returns the sum of integer numbers between n1 and n2 (inclusive).
- *
- * @param {number} n1
- * @param {number} n2
- * @return {number}
- *
- * @example:
- *   1,2   =>  3  ( = 1+2 )
- *   5,10  =>  45 ( = 5+6+7+8+9+10 )
- *   -1,1  =>  0  ( = -1 + 0 + 1 )
- */
+* Returns the sum of integer numbers between n1 and n2 (inclusive).
+*
+* @param {number} n1
+* @param {number} n2
+* @return {number}
+*
+* @example:
+*   1,2   =>  3  ( = 1+2 )
+*   5,10  =>  45 ( = 5+6+7+8+9+10 )
+*   -1,1  =>  0  ( = -1 + 0 + 1 )
+*/
 function getSumBetweenNumbers(n1, n2) {
-  throw new Error('Not implemented');
+  return (n1 + n2) / 2 * (n2 - n1 + 1);
 }
 
 
 /**
- * Returns true, if a triangle can be built with the specified sides a,b,c and false 
- * in any other ways.
- *
- * @param {number} a
- * @param {number} b
- * @param {number} c
- * @return {bool}
- *
- * @example:
- *   1,2,3    =>  false
- *   3,4,5    =>  true
- *   10,1,1   =>  false
- *   10,10,10 =>  true
- */
+* Returns true, if a triangle can be built with the specified sides a,b,c and false in any other ways.
+*
+* @param {number} a
+* @param {number} b
+* @param {number} c
+* @return {bool}
+*
+* @example:
+*   1,2,3    =>  false
+*   3,4,5    =>  true
+*   10,1,1   =>  false
+*   10,10,10 =>  true
+*/
 function isTriangle(a, b, c) {
-  throw new Error('Not implemented');
+  return (a < b + c) &&
+      (b < a + c) &&
+      (c < a + b);
 }
 
 
 /**
- * Returns true, if two specified axis-aligned rectangles overlap, otherwise false.
- * Each rectangle representing by object
- *  {
- *     top: 5,
- *     left: 5,
- *     width: 20,
- *     height: 10
- *  }
- *
- *  (5;5)
- *     -------------
- *     |           |
- *     |           |  height = 10
- *     -------------
- *        width=20
- *
- * NOTE: Please use canvas coordinate space (https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#The_grid),
- * it differs from Cartesian coordinate system.
- *
- * @param {object} rect1
- * @param {object} rect2
- * @return {bool}
- *
- * @example:
- *   { top: 0, left: 0, width: 10, height: 10 },
- *   { top: 5, left: 5, width: 20, height: 20 }    =>  true
- *
- *   { top: 0, left: 0, width: 10, height: 10 },
- *   { top:20, left:20, width: 20, height: 20 }    =>  false
- *
- */
+* Returns true, if two specified axis-aligned rectangles overlap, otherwise false.
+* Each rectangle representing by object 
+*  {
+*     top: 5,
+*     left: 5,
+*     width: 20,
+*     height: 10
+*  }
+* 
+*  (5;5)
+*     -------------  
+*     |           | 
+*     |           |  height = 10
+*     ------------- 
+*        width=20    
+* 
+* NOTE: Please use canvas coordinate space (https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes#The_grid),
+* it differs from Cartesian coordinate system.
+* 
+* @param {object} rect1
+* @param {object} rect2
+* @return {bool}
+*
+* @example:
+*   { top: 0, left: 0, width: 10, height: 10 },
+*   { top: 5, left: 5, width: 20, height: 20 }    =>  true
+* 
+*   { top: 0, left: 0, width: 10, height: 10 },
+*   { top:20, left:20, width: 20, height: 20 }    =>  false
+*  
+*/
 function doRectanglesOverlap(rect1, rect2) {
-  throw new Error('Not implemented');
+  return !(
+    rect1.top > rect2.top + rect2.height ||
+    rect1.left > rect2.left + rect2.width ||
+    rect1.top + rect1.height < rect2.top ||
+    rect1.left + rect1.width < rect2.left
+  );
 }
 
 
 /**
- * Returns true, if point lies inside the circle, otherwise false.
- * Circle is an object of
- *  {
- *     center: {
- *       x: 5,
- *       y: 5
- *     },
- *     radius: 20
- *  }
- *
- * Point is object of
- *  {
- *     x: 5,
- *     y: 5
- *  }
- *
- * @param {object} circle
- * @param {object} point
- * @return {bool}
- *
- * @example:
- *   { center: { x:0, y:0 }, radius:10 },  { x:0, y:0 }     => true
- *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
- *
- */
+* Returns true, if point lies inside the circle, otherwise false.
+* Circle is an object of 
+*  {
+*     center: {
+*       x: 5,       
+*       y: 5
+*     },        
+*     radius: 20
+*  }
+* 
+* Point is object of 
+*  {
+*     x: 5,
+*     y: 5
+*  }
+* 
+* @param {object} circle
+* @param {object} point
+* @return {bool}
+*
+* @example:
+*   { center: { x:0, y:0 }, radius:10 },  { x:0, y:0 }     => true
+*   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
+*   
+*/
 function isInsideCircle(circle, point) {
-  throw new Error('Not implemented');
+  return Math.hypot(circle.center.x - point.x, circle.center.y - point.y) < circle.radius;
 }
 
 
 /**
- * Returns the first non repeated char in the specified strings otherwise returns null.
- *
- * @param {string} str
- * @return {string}
- *
- * @example:
- *   'The quick brown fox jumps over the lazy dog' => 'T'
- *   'abracadabra'  => 'c'
- *   'entente' => null
- */
+* Returns the first non repeated char in the specified strings otherwise returns null.
+*
+* @param {string} str
+* @return {string}
+*
+* @example:
+*   'The quick brown fox jumps over the lazy dog' => 'T'
+*   'abracadabra'  => 'c'
+*   'entente' => null
+*/
 function findFirstSingleChar(str) {
-  throw new Error('Not implemented');
+  for (var i = 0; i < str.length; i++)
+      if (str.indexOf(str[i]) === i && str.lastIndexOf(str[i]) === i)
+          return str[i];
+  return null;
 }
 
 
 /**
- * Returns the string representation of math interval, specified by two points and 
- * include / exclude flags.
- * See the details: https://en.wikipedia.org/wiki/Interval_(mathematics)
- *
- * Please take attention, that the smaller number should be the first in the notation
- *
- * @param {number} a
- * @param {number} b
- * @param {bool} isStartIncluded
- * @param {bool} isEndIncluded
- * @return {string}
- *
- * @example
- *   0, 1, true, true   => '[0, 1]'
- *   0, 1, true, false  => '[0, 1)'
- *   0, 1, false, true  => '(0, 1]'
- *   0, 1, false, false => '(0, 1)'
- * Smaller number has to be first :
- *   5, 3, true, true   => '[3, 5]'
- *
- */
+* Returns the string representation of math interval, specified by two points and include / exclude flags.
+* See the details: https://en.wikipedia.org/wiki/Interval_(mathematics)
+*
+* Please take attention, that the smaller number should be the first in the notation
+*
+* @param {number} a
+* @param {number} b
+* @param {bool} isStartIncluded
+* @param {bool} isEndIncluded
+* @return {string}
+*
+* @example
+*   0, 1, true, true   => '[0, 1]'
+*   0, 1, true, false  => '[0, 1)'
+*   0, 1, false, true  => '(0, 1]'
+*   0, 1, false, false => '(0, 1)'
+* Smaller number has to be first :
+*   5, 3, true, true   => '[3, 5]'
+*
+*/
 function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-  throw new Error('Not implemented');
+  return (isStartIncluded ? '[' : '(') +
+      Math.min(a, b) +
+      ', ' +
+      Math.max(a, b) +
+      (isEndIncluded ? ']' : ')');
 }
 
 
 /**
- * Reverse the specified string (put all chars in reverse order)
- *
- * @param {string} str
- * @return {string}
- *
- * @example:
- * 'The quick brown fox jumps over the lazy dog' => 'god yzal eht revo spmuj xof nworb kciuq ehT'
- * 'abracadabra' => 'arbadacarba'
- * 'rotator' => 'rotator'
- * 'noon' => 'noon'
- */
+* Reverse the specified string (put all chars in reverse order)
+*
+* @param {string} str
+* @return {string}
+*
+* @example:
+* 'The quick brown fox jumps over the lazy dog' => 'god yzal eht revo spmuj xof nworb kciuq ehT'
+* 'abracadabra' => 'arbadacarba'
+* 'rotator' => 'rotator'
+* 'noon' => 'noon'
+*/
 function reverseString(str) {
-  throw new Error('Not implemented');
+  return str.split('').reverse().join('');
 }
 
 
